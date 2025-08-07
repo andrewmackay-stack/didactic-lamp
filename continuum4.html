@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Performance & Well-being Continuum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        /* -- Flip Card Styles -- */
+        .flip-card {
+            background-color: transparent;
+            perspective: 1000px; /* Gives the 3D effect */
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: left;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            /* Height of the cards */
+            min-height: 420px; 
+        }
+
+        .flip-card.is-flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* Safari */
+            backface-visibility: hidden;
+            border-radius: 0.5rem; /* Corresponds to rounded-lg */
+            overflow: hidden; /* Ensures content stays within rounded corners */
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8">
+        <!-- Main Title -->
+        <header class="text-center mb-8 md:mb-12">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">Wellbeing Continuum: Underperformance Management</h1>
+            <p class="text-base sm:text-lg text-gray-600 mt-2">Click on a card to reveal coaching questions.</p>
+        </header>
+
+        <!-- Responsive Grid Container -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+
+            <!-- Card 1: In Crisis -->
+            <div class="flip-card cursor-pointer">
+                <div class="flip-card-inner shadow-md rounded-lg">
+                    <div class="flip-card-front bg-red-100 border-l-8 border-red-500 p-6">
+                        <h2 class="text-3xl font-bold text-red-800">IN CRISIS</h2>
+                        <p class="text-sm font-medium text-red-600 mt-1 mb-4">Struggling to cope, physically and mentally exhausted</p>
+                        <ul class="space-y-2 text-red-900 list-disc list-inside">
+                            <li>Very anxious</li>
+                            <li>Very low mood</li>
+                            <li>Absenteeism</li>
+                            <li>Exhausted</li>
+                            <li>Very poor sleep</li>
+                            <li>Weight loss</li>
+                        </ul>
+                    </div>
+                    <div class="flip-card-back bg-red-100 border-l-8 border-red-500 p-6">
+                        <h3 class="font-bold text-red-800 mb-2">Coaching Questions:</h3>
+                        <ul class="space-y-3 text-sm text-red-900 list-disc list-outside ml-4">
+                            <li>Of everything on your plate, what feels the most daunting?</li>
+                            <li>Is there anything outside of work contributing to this feeling?</li>
+                            <li>What specific aspects of your work are draining your energy most?</li>
+                            <li>What would a small win look like for you right now?</li>
+                            <li>Would it be helpful if I shared details for our EAP?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Struggling -->
+            <div class="flip-card cursor-pointer">
+                <div class="flip-card-inner shadow-md rounded-lg">
+                    <div class="flip-card-front bg-orange-100 border-l-8 border-orange-500 p-6">
+                        <h2 class="text-3xl font-bold text-orange-800">STRUGGLING</h2>
+                        <p class="text-sm font-medium text-orange-600 mt-1 mb-4">Feeling overwhelmed and under pressure</p>
+                        <ul class="space-y-2 text-orange-900 list-disc list-inside">
+                            <li>Anxious</li>
+                            <li>Depressed</li>
+                            <li>Tired</li>
+                            <li>Poor performance areas</li>
+                            <li>Poor sleep</li>
+                            <li>Poor appetite</li>
+                        </ul>
+                    </div>
+                    <div class="flip-card-back bg-orange-100 border-l-8 border-orange-500 p-6">
+                        <h3 class="font-bold text-orange-800 mb-2">Coaching Questions:</h3>
+                        <ul class="space-y-3 text-sm text-orange-900 list-disc list-outside ml-4">
+                            <li>Can you walk me through what's on your mind?</li>
+                            <li>Is it helpful for me to know if external factors are playing a part?</li>
+                            <li>Which task is causing the most pressure?</li>
+                            <li>What's one task you feel confident about, and one you feel less certain about?</li>
+                            <li>On a scale of 1-10, how in control of your workload do you feel?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Surviving -->
+            <div class="flip-card cursor-pointer">
+                <div class="flip-card-inner shadow-md rounded-lg">
+                    <div class="flip-card-front bg-yellow-100 border-l-8 border-yellow-500 p-6">
+                        <h2 class="text-3xl font-bold text-yellow-800">SURVIVING</h2>
+                        <p class="text-sm font-medium text-yellow-600 mt-1 mb-4">Just getting by, feeling reactive with low energy reserves</p>
+                        <ul class="space-y-2 text-yellow-900 list-disc list-inside">
+                            <li>Worried & Nervous</li>
+                            <li>Irritable & Sad</li>
+                            <li>Trouble sleeping</li>
+                            <li>Distracted</li>
+                            <li>Withdrawn</li>
+                        </ul>
+                    </div>
+                    <div class="flip-card-back bg-yellow-100 border-l-8 border-yellow-500 p-6">
+                         <h3 class="font-bold text-yellow-800 mb-2">Coaching Questions:</h3>
+                        <ul class="space-y-3 text-sm text-yellow-900 list-disc list-outside ml-4">
+                            <li>What does "just getting by" feel like for you in your day-to-day work?</li>
+                            <li>Is it useful for me to be aware of any external factors impacting you?</li>
+                            <li>Which parts of your role are manageable, and which feel like a struggle?</li>
+                            <li>If you could change one thing about your workflow, what would it be?</li>
+                            <li>What is one skill or support that would make your day-to-day feel more achievable?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Thriving -->
+            <div class="flip-card cursor-pointer">
+                <div class="flip-card-inner shadow-md rounded-lg">
+                    <div class="flip-card-front bg-green-100 border-l-8 border-green-500 p-6">
+                        <h2 class="text-3xl font-bold text-green-800">THRIVING</h2>
+                        <p class="text-sm font-medium text-green-600 mt-1 mb-4">Feeling engaged and effective, growing and learning</p>
+                        <ul class="space-y-2 text-green-900 list-disc list-inside">
+                            <li>Positive & Calm</li>
+                            <li>Performing</li>
+                            <li>Sleeping well</li>
+                            <li>Eating normally</li>
+                            <li>Normal social activity</li>
+                        </ul>
+                    </div>
+                    <div class="flip-card-back bg-green-100 border-l-8 border-green-500 p-6">
+                        <h3 class="font-bold text-green-800 mb-2">Coaching Questions:</h3>
+                        <ul class="space-y-3 text-sm text-green-900 list-disc list-outside ml-4">
+                            <li>What specific elements of your work are making you feel so engaged?</li>
+                            <li>How can we ensure you continue to have what you need to sustain this?</li>
+                            <li>What are you most passionate about working on right now?</li>
+                            <li>Are there any small obstacles we could remove to help you move to excelling?</li>
+                            <li>What's one new thing you'd like to learn to keep the momentum going?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5: Excelling -->
+            <div class="flip-card cursor-pointer">
+                <div class="flip-card-inner shadow-md rounded-lg">
+                    <div class="flip-card-front bg-cyan-100 border-l-8 border-cyan-500 p-6">
+                        <h2 class="text-3xl font-bold text-cyan-800">EXCELLING</h2>
+                        <p class="text-sm font-medium text-cyan-600 mt-1 mb-4">Finding flow and purpose, feeling energised and seeking new challenges</p>
+                        <ul class="space-y-2 text-cyan-900 list-disc list-inside">
+                            <li>Cheerful & Joyful</li>
+                            <li>Energetic</li>
+                            <li>High performance</li>
+                            <li>Flow</li>
+                            <li>Realising potential</li>
+                        </ul>
+                    </div>
+                    <div class="flip-card-back bg-cyan-100 border-l-8 border-cyan-500 p-6">
+                        <h3 class="font-bold text-cyan-800 mb-2">Coaching Questions:</h3>
+                        <ul class="space-y-3 text-sm text-cyan-900 list-disc list-outside ml-4">
+                            <li>What's making work feel so positive and engaging for you?</li>
+                            <li>What's the next challenge or opportunity you'd like to take on?</li>
+                            <li>Is there anything you've learned that could benefit the rest of the team?</li>
+                            <li>What new skills are you interested in developing to stretch yourself further?</li>
+                            <li>Let's talk about your long-term career aspirations.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const flipCards = document.querySelectorAll('.flip-card');
+
+            flipCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    card.classList.toggle('is-flipped');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
